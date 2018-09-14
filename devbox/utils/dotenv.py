@@ -24,7 +24,9 @@ class DotenvHelper:
         envvars = OrderedDict()
         if os.path.isfile(path):
             for line in open(path).readlines():
-                if (line.startswith('#')):
+                line = line.strip()
+
+                if not line or line.startswith('#'):
                     continue
 
                 variable, value = line.split('=', 1)
