@@ -41,6 +41,7 @@ def execute(containers=None):
         ip = get_ip(container)
         if not ip:
             click.echo('Container "{0}" has not ip'.format(container.name))
+            continue
 
         if container_hosts:
             for container_host in container_hosts:
